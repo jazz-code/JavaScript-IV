@@ -55,3 +55,32 @@ class ProjectManager extends Instructor {
         return `${name} debugs ${student.name}'s code on ${subject}`
     }
 }
+
+const dan = new Instructor({
+    name: 'Dan',
+    location: 'Denver',
+    age: 37,
+    favLanguage: 'JavaScript, Python',
+    specialty: 'Front-end',
+    catchPhrase: `If you can do the thing, you can get paid to do the thing`
+  });
+
+const anthony = new Student({
+    name: 'Anthony',
+    location: 'Brooklyn',
+    age: 29,
+    className: "Web21",
+    favSubjects: "Javascript",
+});
+
+const aj = new ProjectManager({
+    name: "AJ",
+    gradClassName: "Web18",
+    favInstructor: "Josh",
+});
+
+console.log(dan.demo("Object Oriented Programming"));
+console.log(dan.catchPhrase);
+console.log(dan.grade(anthony, "JavaScript-IV"));
+console.log(anthony.speak(anthony, location));
+console.log(aj.standUp(aj.name, "web21_anthony"));
