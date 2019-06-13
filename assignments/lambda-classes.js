@@ -30,6 +30,7 @@ class Student extends Person {
         this.previousBackground = studentProps.previousBackground;
         this.className = studentProps.className;
         this.favSubjects = studentProps.favSubjects;
+        this.grade = studentProps.grade;
     }
     listsSubjects() {
         return `${this.favSubjects}`
@@ -53,6 +54,11 @@ class ProjectManager extends Instructor {
     }
     debugsCode(name, subject) {
         return `${name} debugs ${student.name}'s code on ${subject}`
+    }
+    grade(name) {
+        // min = Math.ceil(min);
+        // max = Math.floor(max);
+        return `${name} recives a score of` + " " + Math.floor(Math.random() * 100);
     }
 }
 
@@ -79,6 +85,7 @@ const aj = new ProjectManager({
     favInstructor: "Josh",
 });
 
+console.log(aj.grade(anthony.name, 2));
 console.log(dan.demo("Object Oriented Programming"));
 console.log(dan.catchPhrase);
 console.log(dan.grade(anthony, "JavaScript-IV"));
