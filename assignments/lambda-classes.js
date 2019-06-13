@@ -21,7 +21,7 @@ class Instructor extends Person {
         return `Today we are learning about ${subject}`;
     }
     grade(student, subject) {
-        return `${student.name} receives a perfect score on ${subject}`
+        return `${student} receives a perfect score on ${subject}`
     }
 }
 class Student extends Person {
@@ -35,14 +35,20 @@ class Student extends Person {
     listsSubjects() {
         return `${this.favSubjects}`
     }
-    PRAssignment(subject) {
-        return `${student.name} has submitted a PR for ${subject}`
+    PRAssignment(student, subject) {
+        return `${student} has submitted a PR for ${subject}`
     }
-    sprintChallenge(subject) {
-        return `${student.name} has begun sprint challenge on ${subject}`
+    sprintChallenge(student, subject) {
+        return `${student} has begun sprint challenge on ${subject}`
+    }
+    graduate() {
+        if(this.grade < 70) {
+            return "fail"
+        } else {
+            return "pass"
+        }
     }
 }
-
 class ProjectManager extends Instructor {
     constructor(PMProps) {
         super(PMProps);
@@ -84,10 +90,11 @@ const aj = new ProjectManager({
     gradClassName: "Web18",
     favInstructor: "Josh",
 });
-
-console.log(aj.grade(anthony.name, 2));
+console.log(aj.grade(anthony.name, 1));
+console.log(anthony.graduate());
 console.log(dan.demo("Object Oriented Programming"));
 console.log(dan.catchPhrase);
-console.log(dan.grade(anthony, "JavaScript-IV"));
+console.log(dan.grade(anthony.name, "JavaScript-IV"));
 console.log(anthony.speak(anthony, location));
 console.log(aj.standUp(aj.name, "web21_anthony"));
+console.log(anthony.sprintChallenge(anthony.name, "Javascript-IV"))
